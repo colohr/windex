@@ -1,10 +1,8 @@
-wwi
+windex
 =============
-Pronunciation /ˈdəbəlˌyo͞o ˈdəbəlˌyo͞o ī/ or wwi
-
 --
-Note: `wwi` is not finished & should not be used for your projects. 
+Note: `windex` is not finished & should not be used for your projects. 
 -------------
 ```
-  npm uninstall wwi
+  npm uninstall windex
 ```
