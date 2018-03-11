@@ -24,8 +24,8 @@ module.exports = async function build_windex(host=''){
 
 	const source = await load_windex()
 	const mini = ES.minify(source,mini_setting)
-	const file_name = fxy.join(__dirname,'../windex.js')
-	const map_file_name = fxy.join(__dirname,'../windex.js.map')
+	const file_name = fxy.join(__dirname,'../logic/windex.js')
+	const map_file_name = fxy.join(__dirname,'../logic/windex.js.map')
 	await fxy.write_file(map_file_name,mini.map,'utf8')
 	await fxy.write_file(file_name,mini.code,'utf8')
 	return source

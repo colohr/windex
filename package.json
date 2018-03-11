@@ -20,8 +20,12 @@
     "prepublishOnly": "node preset.js",
     "test": "node test"
   },
-  "version": "0.0.13",
+  "version": "0.0.132",
   "devDependencies": {
     "uglify-es": "^3.3.9"
+  },
+  "directories": {
+    "logic":"logic",
+    "package": "package"
   }
 }
