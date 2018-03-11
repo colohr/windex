@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <title>Windex test</title>
+    <style>
+        html{
+            width:100%;
+            height:100%;
+            font-family: monospace;
+        }
+        body{
+            margin:0;
+            padding:0;
+	        background: #4b75ff;
+            color:white;
+        }
+
+        [view]{
+            padding:20px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+        #template,#template_text{
+            padding:10px;
+            border-radius: 16px;
+            width: 300px;
+            margin-top:10px;
+            background-color: white;
+        }
+        #template{
+            padding:5px 20px 20px 20px;
+            color: #3a5bb7;
+        }
+        #template_text div{
+
+            border-radius: 10px;
+        }
+        #template hr{
+            border-color:#3a5bb7;
+            border-style: solid;
+        }
+        #template input{
+            display: flex;
+            width: 100%;
+            font-size:18px;
+            text-align: center;
+            color:#3a5bb7;
+            box-sizing: border-box;
+            outline:none;
+            border:1px lightgrey solid;
+            border-radius: 100px;
+
+        }
+        #template input:focus{
+            border-color:#3a5bb7;
+        }
+    </style>
+
+</head>
+<body onload="load()">
+<div view>
+    <h4 style="font-size:30px">Windex</h4>
+    <div id="message"></div>
+    <div id="template" bind="hello-bind"></div>
+    <div id="template_text" bind="hello-text"></div>
+    <div id="bind" bind>
+        <h1>${title}</h1>
+        <h3>${date}</h3>
+        <p>${text}</p>
+    </div>
+</div>
+<template id="hello-bind">
+    <div>
+        <h2 style="color:${color};text-transform: capitalize">${color.replace('dodger','')}</h2>
+        <hr>
+        <input id="cray" value="${value}" placeholder="value">
+    </div>
+
+</template>
+<script src="windex.js"></script>
+<script>
+
+	function load(){
+		const gui = windex.gui
+    	const elements = windex.html.all('[view] > div:not(#message)')
+        const loader = windex.loading(...elements)
+		const message_loader = windex.loading(gui.message)
+
+		gui.message = 'Loaded by windex'
+
+
+
+		windex.when('windex.gui.template','hello_data','hello_data.date').done((...x)=>{
+        	const data = x[1]
+            const binder = windex.binder({
+                'hello-text':'<div style="padding:20px;background:${color}">${title}</div>'
+            })
+            binder.bind(x[0],data)
+            const bind = gui.bind
+            binder.bind(bind,data)
+			const text = gui.template_text
+			binder.bind(text,data)
+			loader.show()
+            setInterval(()=>{
+            	data.date = new Date()
+				binder.bind(bind,data)
+            },1000)
+        })
+
+		window.requestAnimationFrame(do_message)
+		setTimeout(()=>{
+			window.hello_data = {
+				text:'HELLO DATA WAITER',
+				color:'#3a5bb7',
+				value:'Hello Blue',
+				get title(){ return this.value }
+			}
+		},1000)
+		setTimeout(()=>{
+			window.hello_data.date = new Date()
+		},2000)
+
+        //shared actions
+        function do_message(){
+
+			const element = windex.html.create('h2')
+			element.id = 'hello'
+			element.innerHTML = 'HELLO'
+			gui.message.appendChild(element)
+			setTimeout(()=>{
+				message_loader.show()
+			},100)
+        }
+
+
+
+	}
+</script>
+</body>
+</html>

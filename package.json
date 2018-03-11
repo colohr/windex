@@ -10,11 +10,17 @@
   "homepage": "https://github.com/colohr/windex#readme",
   "keywords": [],
   "license": "ISC",
-  "main": "./package/index.js",
+  "main": "./index.js",
   "name": "windex",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/colohr/windex.git"
   },
-  "version": "0.0.1"
+  "scripts": {
+    "test": "node test"
+  },
+  "version": "0.0.11",
+  "devDependencies": {
+    "uglify-es": "^3.3.9"
+  }
 }
