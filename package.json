@@ -1,0 +1,20 @@
+{
+  "author": "colohr",
+  "bugs": {
+    "url": "https://github.com/colohr/windex/issues"
+  },
+  "dependencies": {
+    "fxy": "0.1.71"
+  },
+  "description": "Web App Index",
+  "homepage": "https://github.com/colohr/windex#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "./package/index.js",
+  "name": "windex",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colohr/windex.git"
+  },
+  "version": "0.0.1"
+}
