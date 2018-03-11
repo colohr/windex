@@ -19,7 +19,7 @@
   "scripts": {
     "test": "node test"
   },
-  "version": "0.0.11",
+  "version": "0.0.12",
   "devDependencies": {
     "uglify-es": "^3.3.9"
   }
