@@ -12,8 +12,8 @@ module.exports = windex
 
 //shared actions
 async function load_windex(origin){
-	const file = fxy.join(__dirname,windex.file)
-	const map = fxy.join(__dirname,windex.map)
+	const file = fxy.join(__dirname,'logic',windex.file)
+	const map = fxy.join(__dirname,'logic',windex.map)
 	if(!fxy.exists(file)) return await load_files()
 	return await read_files()
 	//shared actions

@@ -17,9 +17,10 @@
     "url": "git+https://github.com/colohr/windex.git"
   },
   "scripts": {
+    "prepublishOnly": "node preset.js",
     "test": "node test"
   },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "devDependencies": {
     "uglify-es": "^3.3.9"
   }
