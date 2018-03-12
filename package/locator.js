@@ -32,7 +32,7 @@ function export_locator(){
 		function has_origin(){ return x.filter(i=>Locator.protocols.filter(p=>i.includes(p)).length > 0).length }
 	}
 
-	function get_locator(url){ return url.indexOf('http') === 0 ? url:new URL(!url.includes('.js') ? `${url}.js`:url,window.location) }
+	function get_locator(url){ return url.indexOf('http') === 0 ? url:new URL(url,window.location) }
 
 	function get_matcher(source){
 		const url = get_locator(source)

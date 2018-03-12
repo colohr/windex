@@ -15,11 +15,11 @@ const Loader = {
 }
 
 //exports
-module.exports = async function build_windex(host=''){
-	const mini_setting = {sourceMap:{}}
+module.exports = async function build_windex(host='',source_map,rename=false){
+	const mini_setting = {mangle:rename === true, sourceMap:{}}
 	if(host){
-		const map_url = fxy.source.url(host,'windex.js.map')
-		mini_setting.sourceMap = {filename:'windex.js',url:map_url}
+		//const map_url = fxy.source.url(host,'windex.js.map')
+		//mini_setting.sourceMap = {filename:'windex.js',url:map_url}
 	}
 
 	const source = await load_windex()

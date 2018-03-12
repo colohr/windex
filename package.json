@@ -20,7 +20,7 @@
     "prepublishOnly": "node preset.js",
     "test": "node test"
   },
-  "version": "0.0.133",
+  "version": "0.0.134",
   "devDependencies": {
     "uglify-es": "^3.3.9"
   },

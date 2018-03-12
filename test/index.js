@@ -1,11 +1,8 @@
-const fxy = require('fxy')
 const windex = require('../index')
 const express = require('express')
-//const windex_files = fxy.join(__dirname,'../')
 const app = express()
-//app.use(express.static(windex_files))
 app.use(express.static(__dirname))
-app.use(windex.router())
+app.use(windex.router(false,true))
 
 
 start().then(()=>{
